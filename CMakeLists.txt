@@ -14,8 +14,8 @@ set(
 include("tools/gate/cmake/HunterGate.cmake")
 
 huntergate(
-  URL "https://github.com/ruslo/hunter/archive/v0.23.34.tar.gz"
-  SHA1 "70287b1ffa810ee4e952052a9adff9b4856d0d54"
+        URL "https://github.com/ruslo/hunter/archive/v0.23.34.tar.gz"
+        SHA1 "70287b1ffa810ee4e952052a9adff9b4856d0d54"
 )
 
 # TODO: rename project and delete this comment
@@ -30,8 +30,8 @@ find_package(GTest CONFIG REQUIRED)
 # TODO: change template word to project name and delete this comment
 add_library(template STATIC
   # enum your files and delete this comment
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
-)
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/json.cpp
+        include/Commons.hpp)
 add_executable(tests
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
