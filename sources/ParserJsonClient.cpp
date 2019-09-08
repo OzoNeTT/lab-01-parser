@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../include/my_json.hpp"
+#include <my_json.hpp>
 
 using namespace std;
 

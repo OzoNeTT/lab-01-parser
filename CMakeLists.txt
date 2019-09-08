@@ -28,17 +28,18 @@ hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
 # TODO: change template word to project name and delete this comment
-add_library(template STATIC
+add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/json.cpp
-        include/Commons.hpp sources/ParserJsonClient.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Commons.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/ParserJsonClient.cpp)
 add_executable(tests
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
 )
 
 # TODO: change template word to project name and delete this comment
-target_include_directories(template 
+target_include_directories(${PROJECT_NAME}
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 target_include_directories(tests 
