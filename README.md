@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/OzoNeTT/lab-01-parser.svg?branch=master)](https://travis-ci.org/OzoNeTT/lab-01-parser) [![Build status](https://ci.appveyor.com/api/projects/status/6x7qde210xwphia8?svg=true)](https://ci.appveyor.com/project/OzoNeTT/lab-01-parser)
+[![Build Status](https://travis-ci.org/OzoNeTT/lab-01-parser.svg?branch=master)](https://travis-ci.org/OzoNeTT/lab-01-parser)
+![GitHub Repo size](https://img.shields.io/github/repo-size/OzoNeTT/lab-01-parser.svg)
+![Some badge](https://img.shields.io/badge/OzoNe-T__T-blue.svg)
+![forthebadge](https://forthebadge.com/images/badges/not-an-issue.svg)
 # Задание 1
 Реализовать парсер данных в формате JSON.
 
