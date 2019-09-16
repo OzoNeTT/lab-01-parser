@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 Json::Json(const string & s)
 {
     int i = 0;
@@ -22,7 +21,7 @@ Json::Json(const string & s)
         _arr = GetArray(s, i + 1);
     }
     else
-        throw exception();
+        throw WrongJson("String is not Valid!");
 }
 
 bool Json::is_array() const
@@ -32,9 +31,12 @@ bool Json::is_array() const
 
 bool Json::is_object() const
 {
-    return !_isArray;
+    return !_obj.empty();
 }
 
+bool Json::is_empty() const {
+    return _obj.empty() && _arr.empty();
+}
 int Json::GetArrSize() const
 {
     if (is_array())
@@ -93,7 +95,7 @@ pair<any, int> GetValueAndLen(const string &s, int start)
         result = nullptr;
     }
     else
-        throw exception();
+        throw WrongJson("String is not Valid!");
 
     return pair<any, int>(result, i - start);
 }
@@ -103,7 +105,7 @@ any & Json::operator[](const std::string & key)
     if (is_object())
         return _obj[key];
 
-    throw exception();
+    throw WrongJson("Not an object!");
 }
 
 any & Json::operator[](int index)
@@ -111,7 +113,7 @@ any & Json::operator[](int index)
     if (is_array())
         return _arr[index];
 
-    throw exception();
+    throw WrongJson("Not an array!");
 }
 
 Json Json::parse(const std::string & s)
@@ -139,7 +141,7 @@ vector<any> Json::GetArray(const string &s, int start) const
         if (s[i++] == ',')
             continue;
 
-        throw exception();
+        throw WrongJson("String is not Valid!");
     }
 
     return result;
@@ -155,13 +157,13 @@ std::map<std::string, any> Json::GetMap(const std::string & s, int start) const
     {
         i = MissSpaces(s, i);
         if (s[i] != '\"')
-            throw exception();
+            throw WrongJson("String is not Valid!");
 
         string key = GetString(s, i);
         i += key.length() + 2;
         i = MissSpaces(s, i);
         if (s[i++] != ':')
-            throw exception();
+            throw WrongJson("String is not Valid!");
 
         i = MissSpaces(s, i);
         pair<any, int> p = GetValueAndLen(s, i);
@@ -177,7 +179,7 @@ std::map<std::string, any> Json::GetMap(const std::string & s, int start) const
         if (s[i++] == ',')
             continue;
 
-        throw exception();
+        throw WrongJson("String is not Valid!");
     }
 
     return result;

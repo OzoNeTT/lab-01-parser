@@ -7,16 +7,27 @@
 #include <vector>
 #include <map>
 #include <exception>
+
+class WrongJson:public std::runtime_error
+{
+public:
+    using std::runtime_error::runtime_error;
+};
+
 using namespace std::experimental;
+
 class Json {
 public:
+    // Пустой конструктор
+    Json() = default;
     // Конструктор из строки, содержащей Json-данные.
     Json(const std::string& s);
-
     // Метод возвращает true, если данный экземпляр содержит в себе JSON-массив. Иначе false.
     bool is_array() const;
     // Метод возвращает true, если данный экземпляр содержит в себе JSON-объект. Иначе false.
     bool is_object() const;
+
+    bool is_empty() const;
 
     int GetArrSize() const;
 
