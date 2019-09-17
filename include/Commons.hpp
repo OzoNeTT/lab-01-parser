@@ -10,18 +10,23 @@ bool IsSpace(char ch)
 
 int FindEnd(const string& s, int startInd, char openSym, char closeSym)
 {
-    int counter = 0;
-    int i = startInd;
-    do
-    {
-        char sym = s[i++];
-        if (sym == openSym)
-            ++counter;
-        else if (sym == closeSym)
-            --counter;
-    } while ((unsigned int)i < s.length() && counter != 0);
 
-    return i;
+    int i = 0;
+    int openC = 1;
+    int closeC = 0;
+    for(unsigned int j = startInd + 1; j < s.length(); j++) {
+        char symbol = s[j];
+        if(symbol == openSym)
+            openC++;
+        else if(symbol == closeSym)
+            closeC++;
+
+        if(openC == closeC) {
+            i = j;
+            break;
+        }
+    }
+    return i + 1;
 }
 
 // Находит позицию первого непробельного символа, начиная с current.
