@@ -11,22 +11,16 @@ Json::Json(const string & s)
     i = MissSpaces(s, i);
 
     if (s[i] == '{')
-    {
-        _isArray = false;
         _obj = GetMap(s, i + 1);
-    }
     else if (s[i] == '[')
-    {
-        _isArray = true;
         _arr = GetArray(s, i + 1);
-    }
     else
         throw WrongJson("String is not Valid!");
 }
 
 bool Json::is_array() const
 {
-    return _isArray;
+    return !_arr.empty();
 }
 
 bool Json::is_object() const
