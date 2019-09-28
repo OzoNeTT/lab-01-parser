@@ -53,6 +53,5 @@ private:
 
     std::vector<any> _arr;
     std::map<std::string, any> _obj;
-    bool _isArray;
 };
 
