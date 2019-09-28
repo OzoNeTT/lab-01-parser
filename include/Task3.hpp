@@ -15,12 +15,12 @@ Json Transform(const std::string& s){
 
     stringstream ss;
 
-    int size = any_cast<Json>(data[0]).GetArrSize();
+    size_t size = any_cast<Json>(data[0]).GetArrSize();
     if (size != any_cast<Json>(data[1]).GetArrSize() || size != any_cast<Json>(data[2]).GetArrSize())
         throw exception();
 
     ss << "[";
-    for (int i = 0; i < size; ++i)
+    for (size_t i = 0; i < size; ++i)
     {
         ss << "{";
         ss << "\"ticker\":\"" << any_cast<string>(any_cast<Json>(data[0])[i]) << "\",";

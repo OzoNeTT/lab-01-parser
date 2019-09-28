@@ -29,7 +29,7 @@ public:
 
     bool is_empty() const;
 
-    int GetArrSize() const;
+    size_t GetArrSize() const;
 
     // Метод возвращает значение по ключу key, если экземпляр является JSON-объектом.
     // Значение может иметь один из следующих типов: Json, std::string, double, bool или быть пустым.

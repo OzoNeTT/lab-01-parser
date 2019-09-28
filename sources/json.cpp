@@ -37,7 +37,7 @@ bool Json::is_object() const
 bool Json::is_empty() const {
     return _obj.empty() && _arr.empty();
 }
-int Json::GetArrSize() const
+size_t Json::GetArrSize() const
 {
     if (is_array())
         return _arr.size();
